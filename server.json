@@ -1,0 +1,45 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.scriptgrain/scriptgrain",
+  "title": "ScriptGrain",
+  "description": "Your writing voice measured across 45 attributes; drafts in that voice, scored against it.",
+  "version": "1.17.0",
+  "websiteUrl": "https://scriptgrain.com",
+  "repository": {
+    "url": "https://github.com/StovBuilds/scriptgrain-mcp",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://scriptgrain.com/favicon.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.scriptgrain.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. 'Bearer sg_live_...' with a ScriptGrain API key from https://scriptgrain.com/settings?tab=api (every plan, including Free). Leave it out to sign in with OAuth instead.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    },
+    {
+      "type": "sse",
+      "url": "https://mcp.scriptgrain.com/sse",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. 'Bearer sg_live_...' with a ScriptGrain API key. Legacy SSE transport; prefer the streamable-http remote.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

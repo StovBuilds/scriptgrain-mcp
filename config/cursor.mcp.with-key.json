@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "scriptgrain": {
+      "url": "https://mcp.scriptgrain.com/mcp",
+      "headers": {
+        "Authorization": "Bearer sg_live_<your-secret>"
+      }
+    }
+  }
+}
