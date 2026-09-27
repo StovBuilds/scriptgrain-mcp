@@ -9,7 +9,7 @@ against it.
 - **Endpoint:** `https://mcp.scriptgrain.com/mcp` (streamable HTTP, answered as plain JSON; legacy SSE at `https://mcp.scriptgrain.com/sse`)
 - **Auth:** OAuth 2.0 (sign in with your ScriptGrain account on the consent page; used by claude.ai and ChatGPT connectors), or a ScriptGrain API key sent as `Authorization: Bearer sg_live_...`
 - **Plans:** every plan, including Free. Drafting uses credits from your plan; scoring and reading are free.
-- **Server version:** 1.17.0, 35 tools and 2 prompts
+- **Server version:** 1.18.0, 36 tools and 2 prompts
 - **Website:** https://scriptgrain.com · **Docs:** https://scriptgrain.com/docs/mcp.md · **REST API:** https://scriptgrain.com/docs/api.md
 
 This repository is a guide: documentation and client configuration only. It
@@ -83,8 +83,15 @@ later call.
 
 ## Tools
 
-35 tools, listed from the server's own registrations (server 1.17.0).
+36 tools, listed from the server's own registrations (server 1.18.0).
 Credits are from your ScriptGrain plan; "free" means no credit is used.
+
+Drafts, polish and humanise are priced by length: up to 5,000 words 1 credit,
+up to 10,000 words 2, up to 15,000 words 3 (the most one piece can be). A draft
+over 4,000 words, or a polish or humanise over 3,000 words, runs in the
+background: the tool returns at once with a job, and `get_job` shows its
+progress until it has succeeded (about a minute per 2,000 words). Credits are
+charged as the words are delivered, never above the tier asked for.
 
 ### Voice profiles
 
@@ -100,16 +107,17 @@ Credits are from your ScriptGrain plan; "free" means no credit is used.
 | Tool | What it does | Cost |
 |---|---|---|
 | `create_outline` | An outline for a long-form piece, to review before drafting | Free |
-| `generate_content` | A draft in your measured voice in one of 16 content types, with its voice-match score; 1 to 3 variants | 1 credit per variant |
+| `generate_content` | A draft in your measured voice in one of 16 content types, up to 15,000 words, with its voice-match score; 1 to 3 variants (2 and 3 up to 4,000 words); over 4,000 words it is written in the background | Per variant: 1 credit up to 5,000 words, 2 up to 10,000, 3 up to 15,000 |
 | `check_voice_match` | Scores any text against a profile, with the per-feature numbers behind the score | Free |
 | `compare_voice` | No profile needed: scores up to three pieces (text or URL) against a main piece | Free |
-| `polish` | Revises a draft toward a voice-match target (default 0.9), up to 3 passes | 1 credit; free if the draft already passes |
-| `humanize` | Rewrites text to remove measurable machine-writing tells while keeping every fact, up to 3 passes | 1 credit; free if the text already passes |
+| `polish` | Revises a draft toward a voice-match target (default 0.9), up to 3 passes; over 3,000 words it runs in the background | 1 credit up to 5,000 words, 2 up to 10,000, 3 up to 15,000; free if the draft already passes |
+| `humanize` | Rewrites text (or a saved draft) to remove measurable machine-writing tells while keeping every fact, up to 3 passes; over 3,000 words it runs in the background | 1 credit up to 5,000 words, 2 up to 10,000, 3 up to 15,000; free if the text already passes (up to 3,000 words) |
 | `ai_detect` | Stylometric human-vs-AI reading of any text of 50+ words | Free |
 | `rewrite_page` | Rewrites a public web page's copy in your voice, block by block; prices, legal lines and button labels are left alone | 1 credit per 1,500 words; paid plans |
 | `save_edit` | Saves your final edit of a draft, so the profile learns from the difference | Free |
 | `list_generations` | Lists past drafts with their scores | Free |
-| `get_generation` | Fetches one past draft in full | Free |
+| `get_generation` | Fetches one past draft in full (while a long draft is being written, the part delivered so far) | Free |
+| `get_job` | Progress of a background job (a long draft, polish or humanise): sections done, words written, credits charged, and the result once it has succeeded | Free |
 
 ### Voice Brain: the memory of what you have already written
 
