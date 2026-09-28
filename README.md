@@ -9,7 +9,7 @@ against it.
 - **Endpoint:** `https://mcp.scriptgrain.com/mcp` (streamable HTTP, answered as plain JSON; legacy SSE at `https://mcp.scriptgrain.com/sse`)
 - **Auth:** OAuth 2.0 (sign in with your ScriptGrain account on the consent page; used by claude.ai and ChatGPT connectors), or a ScriptGrain API key sent as `Authorization: Bearer sg_live_...`
 - **Plans:** every plan, including Free. Drafting uses credits from your plan; scoring and reading are free.
-- **Server version:** 1.20.0, 36 tools and 2 prompts; every tool has a title and read-only / destructive hints
+- **Server version:** 1.21.0, 41 tools and 2 prompts; every tool has a title and read-only / destructive hints
 - **Website:** https://scriptgrain.com · **Docs:** https://scriptgrain.com/docs/mcp.md · **REST API:** https://scriptgrain.com/docs/api.md
 
 This repository is a guide: documentation and client configuration only. It
@@ -83,7 +83,7 @@ later call.
 
 ## Tools
 
-36 tools, listed from the server's own registrations (server 1.20.0). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`) are marked destructive, so your client can ask before running them.
+41 tools, listed from the server's own registrations (server 1.21.0). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`, `delete_brief_template`) are marked destructive, so your client can ask before running them.
 Credits are from your ScriptGrain plan; "free" means no credit is used.
 
 Drafts, polish and humanise are priced by length: up to 5,000 words 1 credit,
@@ -118,6 +118,11 @@ charged as the words are delivered, never above the tier asked for.
 | `list_generations` | Lists past drafts with their scores | Free |
 | `get_generation` | Fetches one past draft in full (while a long draft is being written, the part delivered so far) | Free |
 | `get_job` | Progress of a background job (a long draft, polish or humanise): sections done, words written, credits charged, and the result once it has succeeded | Free |
+| `list_draft_versions` | A draft's earlier texts, newest first: every edit, polish, humanise or redraft keeps the text it replaced | Free |
+| `restore_draft_version` | Puts an earlier version back; the text it replaces is kept too, so it can be undone | Free |
+| `list_brief_templates` | Your saved briefs (and your team's), to start from with `template_id` on `create_outline` or `generate_content` | Free |
+| `save_brief_template` | Saves a brief (format, topic, angle, audience, register, key points, length) for next time | Free |
+| `delete_brief_template` | Deletes a saved brief | Free |
 
 ### Voice Brain: the memory of what you have already written
 
