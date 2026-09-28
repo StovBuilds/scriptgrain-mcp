@@ -9,7 +9,7 @@ against it.
 - **Endpoint:** `https://mcp.scriptgrain.com/mcp` (streamable HTTP, answered as plain JSON; legacy SSE at `https://mcp.scriptgrain.com/sse`)
 - **Auth:** OAuth 2.0 (sign in with your ScriptGrain account on the consent page; used by claude.ai and ChatGPT connectors), or a ScriptGrain API key sent as `Authorization: Bearer sg_live_...`
 - **Plans:** every plan, including Free. Drafting uses credits from your plan; scoring and reading are free.
-- **Server version:** 1.18.0, 36 tools and 2 prompts
+- **Server version:** 1.19.0, 36 tools and 2 prompts
 - **Website:** https://scriptgrain.com · **Docs:** https://scriptgrain.com/docs/mcp.md · **REST API:** https://scriptgrain.com/docs/api.md
 
 This repository is a guide: documentation and client configuration only. It
@@ -83,7 +83,7 @@ later call.
 
 ## Tools
 
-36 tools, listed from the server's own registrations (server 1.18.0).
+36 tools, listed from the server's own registrations (server 1.19.0).
 Credits are from your ScriptGrain plan; "free" means no credit is used.
 
 Drafts, polish and humanise are priced by length: up to 5,000 words 1 credit,
@@ -127,11 +127,11 @@ charged as the words are delivered, never above the tier asked for.
 | `sync_memory` | Indexes new drafts and samples into the memory | Free |
 | `check_novelty` | Checks a brief against the memory: repeats, builds on, or new, with grounded angles | Free |
 | `what_next` | Five angles that build on what you keep saying | Free |
-| `add_to_memory` | Adds a published piece by pasted text or URL (60+ words) | Free |
+| `add_to_memory` | Adds a published piece by pasted text or URL (60+ words), or one memory stated directly (`memory`, with an optional kind and topic) | Free |
 | `set_repeat_policy` | Whether drafts avoid restating earlier arguments (the default) or may repeat them | Free |
 | `list_brains` | Lists the memories (brains) a voice may use and which voices share each | Free |
 | `set_voice_brain` | Moves a voice to another brain, or back to its own | Free |
-| `edit_memory` | Rewords one memory | Free |
+| `edit_memory` | Changes one memory: its words, its kind, or its topic | Free |
 | `delete_memory` | Deletes one memory | Free |
 | `forget_piece` | Forgets a whole piece and every memory taken from it | Free |
 

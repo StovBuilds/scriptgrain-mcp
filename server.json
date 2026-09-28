@@ -3,7 +3,7 @@
   "name": "com.scriptgrain/scriptgrain",
   "title": "ScriptGrain",
   "description": "Your writing voice measured across 45 attributes; drafts in that voice, scored against it.",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "websiteUrl": "https://scriptgrain.com",
   "repository": {
     "url": "https://github.com/StovBuilds/scriptgrain-mcp",
