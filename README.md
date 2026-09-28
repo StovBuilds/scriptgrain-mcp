@@ -9,7 +9,7 @@ against it.
 - **Endpoint:** `https://mcp.scriptgrain.com/mcp` (streamable HTTP, answered as plain JSON; legacy SSE at `https://mcp.scriptgrain.com/sse`)
 - **Auth:** OAuth 2.0 (sign in with your ScriptGrain account on the consent page; used by claude.ai and ChatGPT connectors), or a ScriptGrain API key sent as `Authorization: Bearer sg_live_...`
 - **Plans:** every plan, including Free. Drafting uses credits from your plan; scoring and reading are free.
-- **Server version:** 1.19.0, 36 tools and 2 prompts
+- **Server version:** 1.20.0, 36 tools and 2 prompts; every tool has a title and read-only / destructive hints
 - **Website:** https://scriptgrain.com · **Docs:** https://scriptgrain.com/docs/mcp.md · **REST API:** https://scriptgrain.com/docs/api.md
 
 This repository is a guide: documentation and client configuration only. It
@@ -83,7 +83,7 @@ later call.
 
 ## Tools
 
-36 tools, listed from the server's own registrations (server 1.19.0).
+36 tools, listed from the server's own registrations (server 1.20.0). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`) are marked destructive, so your client can ask before running them.
 Credits are from your ScriptGrain plan; "free" means no credit is used.
 
 Drafts, polish and humanise are priced by length: up to 5,000 words 1 credit,
