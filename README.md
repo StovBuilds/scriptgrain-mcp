@@ -10,7 +10,7 @@ against it.
 - **No account yet?** `https://mcp.scriptgrain.com/try` needs no key or sign-in: `start_session` gives your assistant a 7-day guest session that builds one voice profile and scores text against it, then hands you a link to keep it in a free account
 - **Auth:** OAuth 2.0 (sign in with your ScriptGrain account on the consent page; used by claude.ai and ChatGPT connectors), or a ScriptGrain API key sent as `Authorization: Bearer sg_live_...`
 - **Plans:** every plan, including Free. Drafting uses credits from your plan; scoring and reading are free.
-- **Server version:** 1.23.0, 41 tools and 2 prompts; every tool has a title and read-only / destructive hints
+- **Server version:** 1.23.1, 41 tools and 2 prompts; every tool has a title and read-only / destructive hints
 - **Building a profile:** your assistant can use writing of yours it already holds (messages you typed to it, documents or emails you shared, your posts), quoted exactly, never its notes about you or AI-written text, and it shows you which pieces it sends
 - **Website:** https://scriptgrain.com · **Docs:** https://scriptgrain.com/docs/mcp.md · **REST API:** https://scriptgrain.com/docs/api.md
 
@@ -85,7 +85,7 @@ later call.
 
 ## Tools
 
-41 tools, listed from the server's own registrations (server 1.23.0). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`, `delete_brief_template`) are marked destructive, so your client can ask before running them.
+41 tools, listed from the server's own registrations (server 1.23.1). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`, `delete_brief_template`) are marked destructive, so your client can ask before running them.
 Credits are from your ScriptGrain plan; "free" means no credit is used.
 
 Drafts, polish and humanise are priced by length: up to 5,000 words 1 credit,
