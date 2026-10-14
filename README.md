@@ -9,7 +9,8 @@ against it.
 - **Endpoint:** `https://mcp.scriptgrain.com/mcp` (streamable HTTP, answered as plain JSON; legacy SSE at `https://mcp.scriptgrain.com/sse`)
 - **Auth:** OAuth 2.0 (sign in with your ScriptGrain account on the consent page; used by claude.ai and ChatGPT connectors), or a ScriptGrain API key sent as `Authorization: Bearer sg_live_...`
 - **Plans:** every plan, including Free. Drafting uses credits from your plan; scoring and reading are free.
-- **Server version:** 1.21.1, 41 tools and 2 prompts; every tool has a title and read-only / destructive hints
+- **Server version:** 1.22.0, 41 tools and 2 prompts; every tool has a title and read-only / destructive hints
+- **Building a profile:** your assistant can use writing of yours it already holds (messages you typed to it, documents or emails you shared, your posts), quoted exactly, never its notes about you or AI-written text, and it shows you which pieces it sends
 - **Website:** https://scriptgrain.com · **Docs:** https://scriptgrain.com/docs/mcp.md · **REST API:** https://scriptgrain.com/docs/api.md
 
 This repository is a guide: documentation and client configuration only. It
@@ -83,7 +84,7 @@ later call.
 
 ## Tools
 
-41 tools, listed from the server's own registrations (server 1.21.1). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`, `delete_brief_template`) are marked destructive, so your client can ask before running them.
+41 tools, listed from the server's own registrations (server 1.22.0). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`, `delete_brief_template`) are marked destructive, so your client can ask before running them.
 Credits are from your ScriptGrain plan; "free" means no credit is used.
 
 Drafts, polish and humanise are priced by length: up to 5,000 words 1 credit,
