@@ -3,7 +3,7 @@
   "name": "com.scriptgrain/scriptgrain",
   "title": "ScriptGrain",
   "description": "Your writing voice measured across 45 attributes; drafts in that voice, scored against it.",
-  "version": "1.22.0",
+  "version": "1.23.0",
   "websiteUrl": "https://scriptgrain.com",
   "repository": {
     "url": "https://github.com/StovBuilds/scriptgrain-mcp",
@@ -13,7 +13,9 @@
     {
       "src": "https://scriptgrain.com/favicon.png",
       "mimeType": "image/png",
-      "sizes": ["512x512"]
+      "sizes": [
+        "512x512"
+      ]
     }
   ],
   "remotes": [
@@ -28,6 +30,10 @@
           "isSecret": true
         }
       ]
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.scriptgrain.com/try"
     },
     {
       "type": "sse",
