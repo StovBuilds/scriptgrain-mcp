@@ -1,0 +1,10 @@
+{
+  "name": "scriptgrain",
+  "displayName": "ScriptGrain",
+  "version": "1.23.1",
+  "description": "Your writing voice measured across 45 attributes; drafts in that voice, scored against it. Remote MCP server plus an agent skill for using it.",
+  "author": { "name": "Adapt Progress Evolve Limited", "email": "support@scriptgrain.com" },
+  "license": "MIT",
+  "keywords": ["writing", "voice", "brand-voice", "stylometry", "mcp", "content"],
+  "logo": "https://scriptgrain.com/favicon.png"
+}
