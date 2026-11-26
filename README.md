@@ -85,7 +85,7 @@ later call.
 
 ## Tools
 
-41 tools, listed from the server's own registrations (server 1.23.1). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`, `delete_brief_template`) are marked destructive, so your client can ask before running them.
+41 tools, listed from the server's own registrations (server 1.23.1). The tools that delete or overwrite (`delete_memory`, `forget_piece`, `edit_memory`, `remove_monitor_url`, `set_voice_brain`, `delete_brief_template`, `restore_draft_version`, `save_edit`) are marked destructive, so your client can ask before running them.
 Credits are from your ScriptGrain plan; "free" means no credit is used.
 
 Drafts, polish and humanise are priced by length: up to 5,000 words 1 credit,
@@ -100,7 +100,7 @@ charged as the words are delivered, never above the tier asked for.
 | Tool | What it does | Cost |
 |---|---|---|
 | `list_profiles` | Lists the voice profiles your key can use, with status, confidence score and sample count | Free |
-| `create_profile` | Builds a voice profile from 1 to 20 samples of your own writing (3+ pieces and 3,000+ words gives a confident profile); runs for about 1 to 3 minutes | 1 extraction slot |
+| `create_profile` | Builds a voice profile from 1 to 20 samples of your own writing (3+ pieces and 3,000+ words gives a confident profile); usually runs for under a minute | 1 extraction slot |
 | `get_profile` | A profile's status and, once complete, its narrative description and all 45 attributes | Free |
 | `mimic_brand` | Builds a profile from a public brand website (up to 8 pages); asks for your explicit consent first | 1 brand-mimic credit |
 
@@ -170,6 +170,21 @@ charged as the words are delivered, never above the tier asked for.
 
 - `write_in_my_voice`: draft a piece, report its score, iterate, and save the final edit.
 - `build_my_voice_profile`: gather your own writing, create the profile, and walk through the result.
+
+## Agent skill
+
+[`skills/scriptgrain/SKILL.md`](skills/scriptgrain/SKILL.md) is an
+[Agent Skill](https://agentskills.io/specification) that teaches an assistant
+the working method: build a profile from the user's own words, draft, score,
+polish, save the edit, and which tools to confirm first. Install it with:
+
+```bash
+npx skills add StovBuilds/scriptgrain-mcp
+```
+
+The repository root also carries `.mcp.json` (the remote server, OAuth) and
+`.cursor-plugin/plugin.json`, so Cursor plugin directories can read it as a
+plugin.
 
 ## Worked examples
 
